@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fútbol Plus Ultra</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f4f4f9; color: #333; }
+        header { background-color: #1a1a1a; color: white; padding: 20px; text-align: center; }
+        header img.logo { max-height: 60px; vertical-align: middle; border-radius: 50%; }
+        .banner { width: 100%; max-height: 300px; object-fit: cover; }
+        .container { max-width: 1000px; margin: 20px auto; padding: 0 20px; display: flex; gap: 20px; flex-wrap: wrap; }
+        main { flex: 2; min-width: 300px; }
+        aside { flex: 1; background: white; padding: 15px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); min-width: 250px; }
+        .card { background: white; padding: 15px; margin-bottom: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        .card img { max-width: 100%; border-radius: 5px; }
+        h2 { color: #1a1a1a; }
+        a { color: #0066cc; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <img src="assets/logo.jpg" alt="Logo" class="logo">
+        <h1>Fútbol Plus Ultra</h1>
+    </header>
+
+    <img src="assets/banner.jpg" alt="Banner" class="banner">
+
+    <div class="container">
+        <main id="news-container">
+            <h2>Últimas Noticias</h2>
+        </main>
+
+        <aside>
+            <h2>Vídeos Destacados</h2>
+            <div id="videos-container">
+            </div>
+        </aside>
+    </div>
+
+    <script>
+        fetch('news.json')
+            .then(response => response.json())
+            .then(data => {
+                const newsContainer = document.getElementById('news-container');
+                data.forEach(item => {
+                    const article = document.createElement('article');
+                    article.className = 'card';
+                    article.innerHTML = `
+                        <h3><a href="noticia.html?id=${item.id}">${item.titulo}</a></h3>
+                        <p><em>${item.fecha}</em></p>
+                        <p>${item.resumen}</p>
+                    `;
+                    newsContainer.appendChild(article);
+                });
+            })
+            .catch(err => console.error("Error al cargar las noticias:", err));
+
+        fetch('videos.json')
+            .then(response => response.json())
+            .then(data => {
+                const videosContainer = document.getElementById('videos-container');
+                data.forEach(video => {
+                    const div = document.createElement('div');
+                    div.className = 'card';
+                    div.innerHTML = `
+                        <h4>${video.titulo}</h4>
+                        <a href="${video.url}" target="_blank">Ver vídeo en YouTube</a>
+                    `;
+                    videosContainer.appendChild(div);
+                });
+            })
+            .catch(err => console.error("Error al cargar los vídeos:", err));
+    </script>
+</body>
+</html>
