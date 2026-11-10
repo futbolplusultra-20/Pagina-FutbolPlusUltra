@@ -1,3 +1,5 @@
 exclude:
   - "Git/"
   - "README.md"
+  - "LEEME.md"
+plugins: []
