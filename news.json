@@ -1,9 +1,105 @@
 [
   {
-    "id": 1,
-    "titulo": "Bienvenidos a Fútbol Plus Ultra",
-    "fecha": "2026-11-10",
-    "resumen": "Este es el primer mensaje de prueba de nuestra nueva página web automatizada.",
-    "contenido": "Aquí puedes detallar toda la información completa de la noticia principal de tu web de fútbol."
+    "id": "forbs",
+    "category": "Fichajes",
+    "title": "¡Interés en Forbs!",
+    "highlight": "Forbs",
+    "date": "07 nov 2026",
+    "image": "assets/forbs.jpg",
+    "x_url": "https://x.com/FutbolPlusUltra",
+    "summary": "El Arsenal ha puesto a Carlos Forbs, extremo del Club Brujas, en su lista de objetivos para el mercado de invierno, mientras sigue pendiente la situación física de Bukayo Saka.",
+    "body": [
+      {
+        "h": "Qué se sabe",
+        "list": [
+          "El periodista Ekrem Konur apunta que el Arsenal estudia ir a por el jugador de 22 años en enero. Fichajes.com recoge la información.",
+          "Forbs atraviesa un gran momento: en 14 partidos esta temporada suma 5 goles y 8 asistencias, y eso le ha devuelto a la órbita de la selección absoluta de Portugal.",
+          "Es un extremo veloz y con mucho peso en los últimos metros, un perfil que encaja como alternativa en la banda."
+        ]
+      },
+      {
+        "h": "Los obstáculos",
+        "p": [
+          "Según Fichajes.com, el Brujas considera a Forbs una pieza importante de su ataque y no aceptaría su salida en invierno, así que convencer al club belga se presenta complicado.",
+          "Además, el Arsenal no está solo: el mismo medio habla de más pretendientes en la Premier League y en la Serie A."
+        ]
+      },
+      {
+        "h": "Qué puede pasar",
+        "p": [
+          "Por ahora es un interés, no una negociación. La operación dependerá de cómo evolucione Saka, de si el Brujas abre la puerta y de que el Arsenal mueva ficha antes que sus rivales. En FutbolPlusUltra seguiremos el caso."
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "name": "Fichajes.com · Competencia feroz para el Arsenal por un atacante",
+        "url": "https://www.fichajes.com/a6740457531591272546-competencia-feroz-para-el-arsenal-por-un-atacante"
+      },
+      {
+        "name": "Fichajes.com · Carlos Forbs, fichaje invernal",
+        "url": "https://www.fichajes.com/a898532068420926512-carlos-forbs-fichaje-invernal"
+      }
+    ],
+    "type": "post",
+    "source": "x",
+    "square": true,
+    "ts": "2026-11-07",
+    "url": "https://x.com/FutbolPlusUltra"
+  },
+  {
+    "id": "demo1",
+    "category": "LaLiga",
+    "title": "Noticia de ejemplo: jornada en LaLiga",
+    "date": "06 nov 2026",
+    "summary": "Tarjeta de demostración. Bórrala o sustitúyela en news.json.",
+    "type": "post",
+    "source": "x",
+    "ts": "2026-11-06",
+    "url": "https://x.com/FutbolPlusUltra"
+  },
+  {
+    "id": "demo2",
+    "category": "Premier League",
+    "title": "Noticia de ejemplo: once de la semana",
+    "date": "06 nov 2026",
+    "summary": "Tarjeta de demostración. Bórrala o sustitúyela en news.json.",
+    "type": "post",
+    "source": "x",
+    "ts": "2026-11-05",
+    "url": "https://x.com/FutbolPlusUltra"
+  },
+  {
+    "id": "demo3",
+    "category": "Champions League",
+    "title": "Noticia de ejemplo: previa europea",
+    "date": "05 nov 2026",
+    "summary": "Tarjeta de demostración. Bórrala o sustitúyela en news.json.",
+    "type": "post",
+    "source": "x",
+    "ts": "2026-11-05",
+    "url": "https://x.com/FutbolPlusUltra"
+  },
+  {
+    "id": "demo-v1",
+    "type": "video",
+    "source": "youtube",
+    "category": "Video",
+    "title": "Video de ejemplo: resumen del mercado",
+    "date": "05 nov 2026",
+    "ts": "2026-11-05",
+    "summary": "Tarjeta de demostración. Se sustituye por tus Shorts reales.",
+    "url": "https://www.youtube.com/@FutbolPlusUltra/shorts"
+  },
+  {
+    "id": "demo-v2",
+    "type": "video",
+    "source": "instagram",
+    "category": "Reel",
+    "title": "Reel de ejemplo: previa de la jornada",
+    "date": "04 nov 2026",
+    "ts": "2026-11-04",
+    "summary": "Tarjeta de demostración. Se sustituye por tus Reels reales.",
+    "url": "https://www.instagram.com/futbolplusultra/"
   }
 ]

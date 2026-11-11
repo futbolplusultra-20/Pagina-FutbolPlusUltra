@@ -1,78 +1,139 @@
 <!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fútbol Plus Ultra</title>
-    <style>
-        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f4f4f9; color: #333; }
-        header { background-color: #1a1a1a; color: white; padding: 20px; text-align: center; }
-        header img.logo { max-height: 60px; vertical-align: middle; border-radius: 50%; }
-        .banner { width: 100%; max-height: 300px; object-fit: cover; }
-        .container { max-width: 1000px; margin: 20px auto; padding: 0 20px; display: flex; gap: 20px; flex-wrap: wrap; }
-        main { flex: 2; min-width: 300px; }
-        aside { flex: 1; background: white; padding: 15px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); min-width: 250px; }
-        .card { background: white; padding: 15px; margin-bottom: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-        .card img { max-width: 100%; border-radius: 5px; }
-        h2 { color: #1a1a1a; }
-        a { color: #0066cc; text-decoration: none; }
-        a:hover { text-decoration: underline; }
-    </style>
-</head>
-<body>
+<html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>FutbolPlusUltra · Noticias, fichajes y análisis</title>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow:wght@400;600&family=Barlow+Condensed:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:dark;--bk:#040804;--ne:#AFF30E;--dg:#0D5A0A;--g:#0B9B0A;--w:#EDEEEB;--gr:#5E5E5C;--card:#0a120a;box-sizing:border-box}
+*{box-sizing:border-box;margin:0}html{scroll-behavior:smooth;scroll-padding-top:84px;background:var(--bk)}
+body{background:var(--bk);color:var(--w);font:400 16px/1.55 Barlow,system-ui,sans-serif;overflow-x:hidden;padding-bottom:env(safe-area-inset-bottom,0)}
+h1,h2,h3,.an{font-family:Anton,Impact,'Arial Narrow',sans-serif;text-transform:uppercase;letter-spacing:.02em;font-weight:400}
+.bc{font-family:'Barlow Condensed','Arial Narrow',sans-serif;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+a{color:inherit;text-decoration:none}
+header{position:sticky;top:0;z-index:50;background:rgba(4,8,4,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--dg);box-shadow:0 2px 24px rgba(175,243,14,.12);padding-top:env(safe-area-inset-top,0)}
+.hd{max-width:1200px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:10px 20px}
+.brand{display:flex;align-items:center;gap:10px}.brand img{width:48px;height:48px;border-radius:50%;border:2px solid var(--ne);box-shadow:0 0 14px rgba(175,243,14,.5)}
+.brand b{font:400 20px Anton,Impact,sans-serif;letter-spacing:.03em}.brand b i{color:var(--ne);font-style:normal}
+nav{display:flex;gap:26px}nav a{font-size:15px;position:relative;padding:6px 0;transition:.25s}
+nav a:after{content:"";position:absolute;left:0;bottom:0;height:2px;width:0;background:var(--ne);box-shadow:0 0 8px var(--ne);transition:.3s}
+nav a:hover{color:var(--ne)}nav a:hover:after{width:100%}
+.soc{display:flex;gap:8px}.soc a,.ic{width:36px;height:36px;border:1px solid var(--dg);border-radius:8px;display:grid;place-items:center;transition:.25s}
+.soc a:hover{border-color:var(--ne);background:var(--ne);color:var(--bk);box-shadow:0 0 14px var(--ne)}svg.i{width:18px;height:18px;fill:currentColor}
+.tg{display:none;background:none;border:1px solid var(--dg);color:var(--ne);border-radius:8px;width:40px;height:40px;font-size:20px}
+.hero{position:relative;min-height:88vh;display:grid;align-items:center;overflow:hidden;background:radial-gradient(ellipse at 20% 30%,rgba(11,155,10,.35),transparent 55%),linear-gradient(180deg,#061006,var(--bk))}
+.hero:before{content:"";position:absolute;inset:0;background:url(assets/banner.jpg) center/cover;opacity:.32;filter:grayscale(1)}
+.hero:after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(115deg,transparent 0 60px,rgba(175,243,14,.05) 60px 62px),linear-gradient(90deg,var(--bk) 5%,transparent 75%),linear-gradient(0deg,var(--bk),transparent 30%)}
+.hi{position:relative;z-index:2;max-width:1200px;margin:auto;padding:60px 20px;width:100%}
+.hero h1{font-size:clamp(46px,10vw,128px);line-height:.95;color:var(--w)}.hero h1 span{color:var(--ne);text-shadow:0 0 30px rgba(175,243,14,.55)}
+.hero h2{font-size:clamp(20px,3.2vw,36px);margin:20px 0 8px;color:var(--ne);max-width:760px;line-height:1.15}
+.hero p{color:#c9cbc6;font-size:19px;max-width:560px}
+.bt{display:inline-flex;align-items:center;gap:8px;padding:14px 26px;border-radius:6px;border:2px solid var(--ne);transition:.25s;font-size:16px;cursor:pointer;background:none;color:var(--ne)}
+.bt.f{background:var(--ne);color:var(--bk)}.bt:hover{transform:translateY(-3px) skewX(-4deg);box-shadow:0 0 26px rgba(175,243,14,.6)}.bt.f:hover{background:#c6ff3a}
+.bts{display:flex;gap:14px;flex-wrap:wrap;margin-top:30px}
+section.s{max-width:1200px;margin:auto;padding:84px 20px 20px}
+.sh{display:flex;align-items:end;gap:18px;margin-bottom:32px}.sh h2{font-size:clamp(30px,5vw,54px);line-height:1}.sh h2 em{color:var(--ne);font-style:normal}
+.sh:after{content:"";flex:1;height:3px;background:linear-gradient(90deg,var(--ne),transparent);transform:skewX(-30deg);box-shadow:0 0 12px var(--ne);margin-bottom:8px}
+.demo{font-size:13px;color:var(--gr);margin:-18px 0 24px}
+.gr{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:22px}
+.c{background:linear-gradient(180deg,#0c180c,var(--card));border:1px solid var(--dg);border-radius:12px;overflow:hidden;transition:.3s;display:flex;flex-direction:column}
+.c:hover{transform:translateY(-6px);border-color:var(--ne);box-shadow:0 0 28px rgba(175,243,14,.28)}
+.ph{position:relative;aspect-ratio:16/10;background:radial-gradient(circle at 50% 40%,rgba(11,155,10,.75),#062006 60%,var(--bk));overflow:hidden}
+.ph:before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(115deg,transparent 0 22px,rgba(175,243,14,.08) 22px 24px)}
+.ph svg{position:absolute;left:50%;bottom:-6%;height:96%;transform:translateX(-50%);fill:#030803;filter:drop-shadow(0 0 10px rgba(175,243,14,.6));transition:.4s}.c:hover .ph svg{transform:translateX(-50%) scale(1.06)}
+.ph.im{aspect-ratio:1}.ph.im img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:.4s}.c:hover .ph.im img{transform:scale(1.04)}.dt{max-width:820px;margin:auto;padding:40px 20px 0}.dt h1{font-size:clamp(38px,8vw,80px);line-height:1;margin:16px 0 6px}.dt h1 span{color:var(--ne);text-shadow:0 0 24px rgba(175,243,14,.5)}.dt img{width:100%;max-width:560px;border-radius:14px;border:2px solid var(--ne);box-shadow:0 0 34px rgba(175,243,14,.3);display:block;margin:22px auto}.dt h2{font-size:28px;color:var(--ne);margin:30px 0 8px}.dt p,.dt li{color:#d3d5d0;font-size:18px;margin:10px 0}.dt ul{padding-left:22px}.dt .lead{font-size:21px;color:var(--w);border-left:4px solid var(--ne);padding-left:16px}.dt .src{border:1px solid var(--dg);border-radius:12px;padding:16px 18px;margin-top:34px;background:var(--card)}.dt .src a{color:var(--ne);text-decoration:underline}.dt .tg2{display:inline-block;background:var(--ne);color:var(--bk);padding:3px 14px;font-size:13px;margin-top:20px;clip-path:polygon(0 0,100% 0,94% 100%,0 100%)}.ph.v{aspect-ratio:9/12}.ph.v img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}.play{position:absolute;left:50%;top:50%;width:64px;height:64px;margin:-32px;border-radius:50%;border:3px solid var(--ne);box-shadow:0 0 22px var(--ne);z-index:2;display:grid;place-items:center;transition:.3s}.play:after{content:"";border-left:20px solid var(--ne);border-top:12px solid transparent;border-bottom:12px solid transparent;margin-left:6px}.c:hover .play{background:rgba(175,243,14,.22)}.flt{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:24px}.flt button{background:none;border:1px solid var(--dg);color:var(--w);padding:8px 20px;border-radius:6px;font-size:15px;cursor:pointer;transition:.25s}.flt button:hover,.flt button.on{background:var(--ne);color:var(--bk);border-color:var(--ne);box-shadow:0 0 14px rgba(175,243,14,.5)}.ph img.t{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}.tag{position:absolute;top:12px;left:12px;z-index:2;background:var(--ne);color:var(--bk);padding:3px 12px;font-size:13px;clip-path:polygon(0 0,100% 0,92% 100%,0 100%)}
+.cb{padding:18px;display:flex;flex-direction:column;gap:8px;flex:1}.cb h3{font-size:23px;line-height:1.1}.cb h3 b{color:var(--ne);font-weight:400}
+.cb small{color:var(--gr);font-size:13px}.cb p{color:#b9bbb6;font-size:15px}.cb .bt{margin-top:auto;padding:9px 16px;font-size:14px;align-self:flex-start}
+.fl{display:grid;gap:4px;font-size:15px;border-top:1px dashed var(--dg);padding-top:10px}.fl span{color:var(--gr)}.fl b{color:var(--w)}
+.pr{display:flex;gap:4px;margin-top:6px}.pr i{flex:1;height:6px;border-radius:3px;background:#1b261b}.pr i.on{background:var(--ne);box-shadow:0 0 8px var(--ne)}
+.st{font-size:14px;color:var(--ne)}
+.an{display:block}.mini{display:flex;align-items:end;gap:5px;height:70px;margin:6px 0}.mini i{flex:1;background:linear-gradient(0deg,var(--g),var(--ne));border-radius:3px 3px 0 0;transition:.4s;transform-origin:bottom}.c:hover .mini i{filter:brightness(1.25)}
+.pit{aspect-ratio:2/1.1;border:2px solid var(--g);border-radius:6px;position:relative;margin:6px 0;background:repeating-linear-gradient(90deg,#071507 0 12.5%,#0a1c0a 12.5% 25%)}
+.pit:before{content:"";position:absolute;left:50%;top:0;bottom:0;border-left:2px solid var(--g)}.pit:after{content:"";position:absolute;left:50%;top:50%;width:26%;aspect-ratio:1;border:2px solid var(--g);border-radius:50%;transform:translate(-50%,-50%)}
+.pit u{position:absolute;width:9px;height:9px;border-radius:50%;background:var(--ne);box-shadow:0 0 8px var(--ne);z-index:1}
+.bar{display:grid;grid-template-columns:70px 1fr 40px;gap:8px;align-items:center;font-size:14px}.bar div{height:8px;background:#1b261b;border-radius:4px;overflow:hidden}.bar div i{display:block;height:100%;background:var(--ne)}
+.x{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:22px}
+.sc{border:1px solid var(--dg);border-radius:14px;padding:24px;background:linear-gradient(160deg,#0c1a0c,var(--card));transition:.3s;display:flex;flex-direction:column;gap:10px;align-items:flex-start}
+.sc:hover{border-color:var(--ne);transform:translateY(-5px);box-shadow:0 0 28px rgba(175,243,14,.28)}.sc .ic{width:52px;height:52px;color:var(--ne)}.sc .ic svg{width:28px;height:28px}
+.sc.big{grid-row:span 3;border:2px solid var(--ne);background:radial-gradient(circle at 80% 0,rgba(175,243,14,.22),transparent 55%),#071207;box-shadow:0 0 34px rgba(175,243,14,.2)}
+.sc.big h3{font-size:clamp(34px,5vw,56px);line-height:1}.sc.big h3 em{color:var(--ne);font-style:normal}
+.ab{display:grid;grid-template-columns:260px 1fr;gap:40px;align-items:center;border:1px solid var(--dg);border-radius:16px;padding:34px;background:linear-gradient(120deg,#0a160a,var(--bk))}
+.ab img{width:100%;border-radius:50%;border:3px solid var(--ne);box-shadow:0 0 40px rgba(175,243,14,.45)}.ab p{font-size:18px;color:#cfd1cc;margin-top:14px}
+.nm{display:flex;gap:30px;margin-top:22px;flex-wrap:wrap}.nm div b{display:block;font:400 38px Anton,Impact,sans-serif;color:var(--ne)}.nm span{color:var(--gr);font-size:13px}
+footer{margin-top:90px;border-top:3px solid var(--ne);box-shadow:0 -10px 40px rgba(175,243,14,.12);background:linear-gradient(180deg,#061006,var(--bk));padding:44px 20px 20px}
+.ft{max-width:1200px;margin:auto;display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:30px}.ft p{color:#aeb0ab;margin:12px 0;max-width:380px}
+.ft h4{color:var(--ne);margin-bottom:10px;font-size:16px}.ft li{list-style:none;margin:6px 0;color:#c4c6c1}.ft li a:hover{color:var(--ne)}.ft ul{padding:0}
+.cp{max-width:1200px;margin:34px auto 0;padding-top:16px;border-top:1px solid var(--dg);color:var(--gr);font-size:14px;text-align:center}
+.rv{opacity:0;transform:translateY(26px);transition:opacity .7s,transform .7s}.rv.v{opacity:1;transform:none}
+@media(max-width:900px){nav{position:absolute;top:100%;left:0;right:0;background:var(--bk);flex-direction:column;gap:0;padding:8px 20px 16px;border-bottom:1px solid var(--ne);display:none}nav.o{display:flex}nav a{padding:12px 0}.tg{display:block}.soc{display:none}
+.x{grid-template-columns:1fr}.sc.big{grid-row:auto}.ab{grid-template-columns:1fr;text-align:center;padding:24px}.ab img{max-width:200px;margin:auto}.nm{justify-content:center}.ft{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto}.rv{opacity:1;transform:none}}
+</style></head><body>
+<svg width="0" height="0" style="position:absolute"><symbol id="pl" viewBox="0 0 100 120"><circle cx="50" cy="22" r="17"/><path d="M12 120c0-34 8-70 38-70s38 36 38 70z"/></symbol>
+<symbol id="x" viewBox="0 0 24 24"><path d="M18.2 2h3.4l-7.4 8.5L23 22h-6.8l-5.3-7-6.1 7H1.4l7.9-9L1 2h7l4.8 6.4zm-1.2 18h1.9L7 3.9H5z"/></symbol>
+<symbol id="ig" viewBox="0 0 24 24"><path d="M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5zm0 2a3 3 0 00-3 3v10a3 3 0 003 3h10a3 3 0 003-3V7a3 3 0 00-3-3zm5 3.5a4.5 4.5 0 110 9 4.5 4.5 0 010-9zm0 2a2.5 2.5 0 100 5 2.5 2.5 0 000-5zM17.5 6a1 1 0 110 2 1 1 0 010-2z"/></symbol>
+<symbol id="tk" viewBox="0 0 24 24"><path d="M16.5 2h-3.2v13.2a2.8 2.8 0 11-2-2.7V9.2a6 6 0 105.2 5.9V8.6A7.6 7.6 0 0021 10V6.8a4.5 4.5 0 01-4.5-4.8z"/></symbol>
+<symbol id="fb" viewBox="0 0 24 24"><path d="M14 8V6.500c0-.8.2-1.200 1.300-1.200H17V2h-2.700C11.300 2 10 3.700 10 6v2H7.500v3.300H10V22h4V11.300h2.700L17 8z"/></symbol><symbol id="yt" viewBox="0 0 24 24"><path d="M22 8.200a3 3 0 00-2.100-2.100C18 5.600 12 5.600 12 5.600s-6 0-7.900.5A3 3 0 002 8.200 31 31 0 001.500 12 31 31 0 002 15.800a3 3 0 002.100 2.100c1.900.5 7.900.5 7.900.5s6 0 7.900-.5a3 3 0 002.100-2.100A31 31 0 0022.500 12 31 31 0 0022 8.200zM10 15V9l5.200 3z"/></symbol><symbol id="th" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" d="M17.5 10C16.700 6.500 14.500 5 12 5 8 5 6 8 6 12s2 7 6 7c3.200 0 5-1.800 5-3.700 0-2-1.800-3-4.200-3-2.200 0-3.800.9-3.800 2.500 0 1.300 1.200 2.200 2.800 2.200 2.300 0 3.700-1.800 3.700-5"/></symbol></svg>
 
-    <header>
-        <img src="assets/logo.jpg" alt="Logo" class="logo">
-        <h1>Fútbol Plus Ultra</h1>
-    </header>
+<header><div class="hd">
+<a class="brand" href="#inicio"><img src="assets/logo.jpg" alt="Logotipo de FutbolPlusUltra"><b>FUTBOL<i>PLUS</i>ULTRA</b></a>
+<nav id="nv" class="bc"><a href="#inicio">Inicio</a><a href="#noticias">Noticias</a><a href="#fichajes">Fichajes</a><a href="#analisis">Análisis</a><a href="#redes">Redes sociales</a></nav>
+<div class="soc"><a href="https://x.com/FutbolPlusUltra" aria-label="X" target="_blank" rel="noopener"><svg class="i"><use href="#x"/></svg></a><a href="https://www.threads.com/@futbolplusultra?hl=es" aria-label="Threads" target="_blank" rel="noopener"><svg class="i"><use href="#th"/></svg></a><a href="https://www.facebook.com/profile.php?id=61589325756871" aria-label="Facebook" target="_blank" rel="noopener"><svg class="i"><use href="#fb"/></svg></a><a href="https://www.instagram.com/futbolplusultra/" aria-label="Instagram" target="_blank" rel="noopener"><svg class="i"><use href="#ig"/></svg></a><a href="https://www.youtube.com/@FutbolPlusUltra" aria-label="YouTube" target="_blank" rel="noopener"><svg class="i"><use href="#yt"/></svg></a><a href="https://www.tiktok.com/@futbolplusultra" aria-label="TikTok" target="_blank" rel="noopener"><svg class="i"><use href="#tk"/></svg></a></div>
+<button class="tg" id="tg" aria-label="Menú">☰</button></div></header>
 
-    <img src="assets/banner.jpg" alt="Banner" class="banner">
+<main>
+<section class="hero" id="inicio"><div class="hi">
+<h1 class="rv">FUTBOL<span>PLUS</span>ULTRA</h1>
+<h2 class="rv">El fútbol se vive, se informa y se analiza.</h2>
+<p class="rv">Noticias, fichajes y análisis del fútbol mundial.</p>
+<div class="bts rv"><a class="bt f bc" href="#noticias">Explorar noticias</a><a class="bt bc" href="#redes">Síguenos en redes</a></div></div></section>
 
-    <div class="container">
-        <main id="news-container">
-            <h2>Últimas Noticias</h2>
-        </main>
+<section class="s" id="noticias"><div class="sh rv"><h2>Últimas <em>noticias</em></h2></div>
+<p class="demo">Publicaciones y videos de X, Instagram y YouTube en un solo lugar.</p><div class="flt" id="fl"><button class="bc on" data-k="all">Todo</button><button class="bc" data-k="post">Publicaciones</button><button class="bc" data-k="video">Videos</button></div><div class="gr" id="gn"></div><div class="bts rv"><a class="bt f bc" href="#redes">Síguenos en redes</a></div></section>
 
-        <aside>
-            <h2>Vídeos Destacados</h2>
-            <div id="videos-container">
-            </div>
-        </aside>
-    </div>
+<section class="s" id="fichajes"><div class="sh rv"><h2>Mercado de <em>fichajes</em></h2></div>
+<p class="demo">El primer fichaje es la publicación real de @FutbolPlusUltra. El resto son operaciones de ejemplo con jugadores y clubes ficticios.</p><div class="gr" id="gf"></div></section>
 
-    <script>
-        fetch('news.json')
-            .then(response => response.json())
-            .then(data => {
-                const newsContainer = document.getElementById('news-container');
-                data.forEach(item => {
-                    const article = document.createElement('article');
-                    article.className = 'card';
-                    article.innerHTML = `
-                        <h3><a href="noticia.html?id=${item.id}">${item.titulo}</a></h3>
-                        <p><em>${item.fecha}</em></p>
-                        <p>${item.resumen}</p>
-                    `;
-                    newsContainer.appendChild(article);
-                });
-            })
-            .catch(err => console.error("Error al cargar las noticias:", err));
+<section class="s" id="analisis"><div class="sh rv"><h2><em>Análisis</em> futbolístico</h2></div>
+<div class="gr">
+<article class="c rv"><div class="cb"><span class="st bc">Análisis de partidos</span><h3>Claves del <b>duelo</b> del fin de semana</h3><div class="bar"><span>Posesión</span><div><i style="width:58%"></i></div><b>58%</b></div><div class="bar"><span>Tiros</span><div><i style="width:72%"></i></div><b>14</b></div><div class="bar"><span>xG</span><div><i style="width:46%"></i></div><b>1.8</b></div><a class="bt bc" href="#analisis">Leer más</a></div></article>
+<article class="c rv"><div class="cb"><span class="st bc">Rendimiento de jugadores</span><h3>Goles + asistencias <b>por jornada</b></h3><div class="mini"><i style="height:30%"></i><i style="height:55%"></i><i style="height:40%"></i><i style="height:80%"></i><i style="height:65%"></i><i style="height:95%"></i><i style="height:75%"></i></div><small>Gráfico de demostración</small><a class="bt bc" href="#analisis">Leer más</a></div></article>
+<article class="c rv"><div class="cb"><span class="st bc">Tácticas y sistemas</span><h3>Un <b>4-3-3</b> con salida en tres</h3><div class="pit"><u style="left:6%;top:46%"></u><u style="left:22%;top:15%"></u><u style="left:22%;top:42%"></u><u style="left:22%;top:72%"></u><u style="left:44%;top:25%"></u><u style="left:44%;top:62%"></u><u style="left:55%;top:44%"></u><u style="left:76%;top:14%"></u><u style="left:80%;top:44%"></u><u style="left:76%;top:74%"></u><u style="left:34%;top:88%"></u></div><a class="bt bc" href="#analisis">Leer más</a></div></article>
+<article class="c rv"><div class="cb"><span class="st bc">Comparativas y estadísticas</span><h3>Cara a cara: <b>A vs B</b></h3><div class="bar"><span>Goles</span><div><i style="width:80%"></i></div><b>16</b></div><div class="bar"><span>Asist.</span><div><i style="width:50%"></i></div><b>8</b></div><div class="bar"><span>Regates</span><div><i style="width:65%"></i></div><b>3.4</b></div><a class="bt bc" href="#analisis">Leer más</a></div></article>
+</div></section>
 
-        fetch('videos.json')
-            .then(response => response.json())
-            .then(data => {
-                const videosContainer = document.getElementById('videos-container');
-                data.forEach(video => {
-                    const div = document.createElement('div');
-                    div.className = 'card';
-                    div.innerHTML = `
-                        <h4>${video.titulo}</h4>
-                        <a href="${video.url}" target="_blank">Ver vídeo en YouTube</a>
-                    `;
-                    videosContainer.appendChild(div);
-                });
-            })
-            .catch(err => console.error("Error al cargar los vídeos:", err));
-    </script>
-</body>
-</html>
+<section class="s" id="redes"><div class="sh rv"><h2>Síguenos en <em>redes sociales</em></h2></div>
+<div class="x"><a class="sc big rv" href="https://x.com/FutbolPlusUltra" target="_blank" rel="noopener"><span class="ic"><svg class="i"><use href="#x"/></svg></span><span class="st bc">Plataforma principal</span><h3>X <em>@FutbolPlusUltra</em></h3><p style="color:#c4c6c1">Fichajes, última hora y la pregunta del día: <b>¿buen fichaje?</b> Aquí publicamos primero.</p><span class="bt f bc">Seguir en X</span></a><a class="sc rv" href="https://www.threads.com/@futbolplusultra?hl=es" target="_blank" rel="noopener"><span class="ic"><svg class="i"><use href="#th"/></svg></span><h3>Threads</h3><small style="color:var(--gr)">@futbolplusultra</small><span class="bt bc">Visitar perfil</span></a><a class="sc rv" href="https://www.facebook.com/profile.php?id=61589325756871" target="_blank" rel="noopener"><span class="ic"><svg class="i"><use href="#fb"/></svg></span><h3>Facebook</h3><small style="color:var(--gr)">Página oficial</small><span class="bt bc">Visitar perfil</span></a><a class="sc rv" href="https://www.instagram.com/futbolplusultra/" target="_blank" rel="noopener"><span class="ic"><svg class="i"><use href="#ig"/></svg></span><h3>Instagram</h3><small style="color:var(--gr)">@futbolplusultra</small><span class="bt bc">Visitar perfil</span></a><a class="sc rv" href="https://www.youtube.com/@FutbolPlusUltra" target="_blank" rel="noopener"><span class="ic"><svg class="i"><use href="#yt"/></svg></span><h3>YouTube</h3><small style="color:var(--gr)">Video noticias · Shorts</small><span class="bt bc">Visitar perfil</span></a><a class="sc rv" href="https://www.tiktok.com/@futbolplusultra" target="_blank" rel="noopener"><span class="ic"><svg class="i"><use href="#tk"/></svg></span><h3>TikTok</h3><small style="color:var(--gr)">@futbolplusultra</small><span class="bt bc">Visitar perfil</span></a></div></section>
+
+<section class="s" id="sobre"><div class="ab rv"><img src="assets/logo.jpg" alt="FutbolPlusUltra"><div><div class="sh" style="margin:0"><h2>¿Qué es <em>FutbolPlusUltra</em>?</h2></div>
+<p>FutbolPlusUltra es una marca dedicada a la actualidad del fútbol, los fichajes, las noticias deportivas y el análisis del fútbol nacional e internacional.</p>
+<p>Nuestro objetivo es mantener informados a los aficionados con contenido visual, información futbolística y publicaciones atractivas.</p></div></div></section>
+</main>
+
+<footer><div class="ft"><div><a class="brand" href="#inicio"><img src="assets/logo.jpg" alt="FutbolPlusUltra"><b>FUTBOL<i>PLUS</i>ULTRA</b></a><p>Actualidad, fichajes y análisis del fútbol nacional e internacional.</p><div class="soc" style="display:flex;flex-wrap:wrap"><a href="https://x.com/FutbolPlusUltra" aria-label="X" target="_blank" rel="noopener"><svg class="i"><use href="#x"/></svg></a><a href="https://www.threads.com/@futbolplusultra?hl=es" aria-label="Threads" target="_blank" rel="noopener"><svg class="i"><use href="#th"/></svg></a><a href="https://www.facebook.com/profile.php?id=61589325756871" aria-label="Facebook" target="_blank" rel="noopener"><svg class="i"><use href="#fb"/></svg></a><a href="https://www.instagram.com/futbolplusultra/" aria-label="Instagram" target="_blank" rel="noopener"><svg class="i"><use href="#ig"/></svg></a><a href="https://www.youtube.com/@FutbolPlusUltra" aria-label="YouTube" target="_blank" rel="noopener"><svg class="i"><use href="#yt"/></svg></a><a href="https://www.tiktok.com/@futbolplusultra" aria-label="TikTok" target="_blank" rel="noopener"><svg class="i"><use href="#tk"/></svg></a></div></div>
+<div><h4 class="bc">Navegación</h4><ul><li><a href="#inicio">Inicio</a></li><li><a href="#noticias">Noticias</a></li><li><a href="#fichajes">Fichajes</a></li><li><a href="#analisis">Análisis</a></li></ul></div>
+<div><h4 class="bc">Comunidad</h4><ul><li><a href="#redes">Redes sociales</a></li><li><a href="#sobre">Sobre nosotros</a></li></ul></div></div>
+<div class="cp">© 2026 FutbolPlusUltra. Todos los derechos reservados.</div></footer>
+
+<script>
+const P='<svg viewBox="0 0 100 120"><use href="#pl"/></svg>';
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const IM='<img src="assets/forbs.jpg" alt="Interés en Forbs" loading="lazy">';
+const fail=(el,f)=>el.innerHTML='<p class="demo">No se pudo cargar '+f+'. Abre la web desde un servidor o hosting, no con doble clic.</p>';
+const SRC={x:'X',instagram:'Instagram',youtube:'YouTube',tiktok:'TikTok'};let ALL=[];
+const card=n=>{const v=n.type==='video',img=n.image||n.thumb,l=n.body?`<a class="bt bc" href="noticia.html?id=${encodeURIComponent(n.id)}">Leer noticia</a>`:`<a class="bt bc" href="${esc(n.url||'#redes')}" target="_blank" rel="noopener">Ver en ${SRC[n.source]||'redes'}</a>`;
+return `<article class="c rv"><div class="ph${n.square?' im':''}"><span class="tag bc">${esc(n.category||SRC[n.source]||'Noticia')}</span>${img?`<img class="t" src="${esc(img)}" alt="${esc(n.title)}" loading="lazy">`:(v?'':P)}${v?'<span class="play"></span>':''}</div><div class="cb"><h3>${esc(n.title)}</h3><small>${esc(n.date||'')}${n.source?' · '+SRC[n.source]:''}</small>${n.summary?`<p>${esc(n.summary)}</p>`:''}${l}</div></article>`};
+const render=k=>{gn.innerHTML=ALL.filter(n=>k==='all'||(k==='video')===(n.type==='video')).map(card).join('')||'<p class="demo">Aún no hay contenido de este tipo.</p>';document.querySelectorAll('#gn .rv').forEach(e=>io.observe(e))};
+fl.onclick=e=>{const b=e.target.closest('button');if(!b)return;fl.querySelectorAll('button').forEach(x=>x.classList.toggle('on',x===b));render(b.dataset.k)};
+Promise.all([fetch('news.json').then(r=>r.json()),fetch('auto.json').then(r=>r.json()).catch(()=>[])]).then(([m,a])=>{ALL=[...m,...a].sort((x,y)=>(y.ts||'').localeCompare(x.ts||''));render('all')}).catch(()=>fail(gn,'news.json'));
+const S=["Rumor","Interés","Negociaciones","Acuerdo","Fichaje oficial"];
+const F=[["Extremo · 22 años · Nº 9","Club Brujas","Arsenal",2,"El Arsenal busca fichar a Carlos Forbs tras los problemas físicos de Saka. Suma 5G + 8A este curso.","Carlos <b>Forbs</b>",1],
+["Centrocampista · 25 años","Club C","Club D",2,"Primer contacto con el entorno del futbolista."],
+["Portero · 27 años","Club E","Club F",3,"Conversaciones por traspaso y cláusula."],
+["Lateral · 24 años","Club G","Club H",4,"Pendiente de reconocimiento médico."],
+["Extremo · 21 años","Club I","Club J",5,"Operación cerrada: presentación prevista."],
+["Central · 28 años","Club K","Club L",1,"Rumor en medios; sin confirmación."]];
+gf.innerHTML=F.map(f=>`<article class="c rv"><div class="ph${f[6]?" im":""}"><span class="tag bc">${S[f[3]-1]}</span>${f[6]?IM:P}</div><div class="cb"><h3>${f[5]||"Jugador <b>demo</b>"}</h3><small>${f[0]}</small><div class="fl"><div><span>Club actual: </span><b>${f[1]}</b></div><div><span>Club interesado: </span><b>${f[2]}</b></div></div><div class="pr">${S.map((_,i)=>`<i class="${i<f[3]?'on':''}"></i>`).join("")}</div><span class="st bc">${S[f[3]-1]}</span><p>${f[4]}</p></div></article>`).join("");
+tg.onclick=()=>nv.classList.toggle("o");nv.onclick=()=>nv.classList.remove("o");
+const io=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting){x.target.classList.add("v");io.unobserve(x.target)}}),{threshold:.12});
+document.querySelectorAll(".rv").forEach(e=>io.observe(e));
+</script></body></html>
