@@ -67,7 +67,7 @@ footer{margin-top:90px;border-top:3px solid var(--ne);box-shadow:0 -10px 40px rg
 @media(max-width:900px){nav{position:absolute;top:100%;left:0;right:0;background:var(--bk);flex-direction:column;gap:0;padding:8px 20px 16px;border-bottom:1px solid var(--ne);display:none}nav.o{display:flex}nav a{padding:12px 0}.tg{display:block}.soc{display:none}
 .x{grid-template-columns:1fr}.sc.big{grid-row:auto}.ab{grid-template-columns:1fr;text-align:center;padding:24px}.ab img{max-width:200px;margin:auto}.nm{justify-content:center}.ft{grid-template-columns:1fr}}
 @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto}.rv{opacity:1;transform:none}}
-</style></head><body>
+.vw{position:relative;display:block;max-width:560px;margin:22px auto}.vw img{margin:0;display:block}.dt .bts{margin-top:26px}</style></head><body>
 <svg width="0" height="0" style="position:absolute"><symbol id="pl" viewBox="0 0 100 120"><circle cx="50" cy="22" r="17"/><path d="M12 120c0-34 8-70 38-70s38 36 38 70z"/></symbol>
 <symbol id="x" viewBox="0 0 24 24"><path d="M18.2 2h3.4l-7.4 8.5L23 22h-6.8l-5.3-7-6.1 7H1.4l7.9-9L1 2h7l4.8 6.4zm-1.2 18h1.9L7 3.9H5z"/></symbol>
 <symbol id="ig" viewBox="0 0 24 24"><path d="M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5zm0 2a3 3 0 00-3 3v10a3 3 0 003 3h10a3 3 0 003-3V7a3 3 0 00-3-3zm5 3.5a4.5 4.5 0 110 9 4.5 4.5 0 010-9zm0 2a2.5 2.5 0 100 5 2.5 2.5 0 000-5zM17.5 6a1 1 0 110 2 1 1 0 010-2z"/></symbol>
@@ -87,16 +87,20 @@ footer{margin-top:90px;border-top:3px solid var(--ne);box-shadow:0 -10px 40px rg
 <div class="cp">© 2026 FutbolPlusUltra. Todos los derechos reservados.</div></footer>
 <script>
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const SRC={x:'X',instagram:'Instagram',youtube:'YouTube',tiktok:'TikTok'};
 tg.onclick=()=>nv.classList.toggle("o");
 const id=new URLSearchParams(location.search).get('id');
-fetch('news.json').then(r=>r.json()).then(N=>{const n=N.find(x=>x.id===id);const a=document.getElementById('art');
+Promise.all([fetch('news.json').then(r=>r.json()),fetch('auto.json').then(r=>r.json()).catch(()=>[])]).then(([N,A])=>{
+const n=N.find(x=>x.id===id)||N.find(x=>x.replaces===id)||A.find(x=>x.id===id);const a=document.getElementById('art');
 if(!n){a.innerHTML+='<p>No se encontró la noticia.</p>';return}
 document.title=n.title+' · FutbolPlusUltra';
+const so=SRC[n.source]||'redes',img=n.image||n.thumb,vid=n.type==='video';
 let ti=esc(n.title);if(n.highlight)ti=ti.replace(esc(n.highlight),m=>'<span>'+m+'</span>');
-let h=`<span class="tg2 bc">${esc(n.category)}</span><h1>${ti}</h1><small style="color:var(--gr)">${esc(n.date)}${n.x_url?` · <a href="${esc(n.x_url)}" target="_blank" rel="noopener" style="color:var(--ne)">Ver publicación en X</a>`:''}</small>`;
-if(n.image)h+=`<img src="${esc(n.image)}" alt="${esc(n.title)}">`;
-h+=`<p class="lead">${esc(n.summary)}</p>`;
+let h=`<span class="tg2 bc">${esc(n.category||so)}</span><h1>${ti}</h1><small style="color:var(--gr)">${esc(n.date||'')} · ${so}${n.url?` · <a href="${esc(n.url)}" target="_blank" rel="noopener" style="color:var(--ne)">Ver publicación original</a>`:''}</small>`;
+if(img)h+=vid&&n.url?`<a class="vw" href="${esc(n.url)}" target="_blank" rel="noopener"><img src="${esc(img)}" alt="${esc(n.title)}"><span class="play"></span></a>`:`<img src="${esc(img)}" alt="${esc(n.title)}">`;
+if(n.summary)h+=`<p class="lead">${esc(n.summary)}</p>`;
 (n.body||[]).forEach(s=>{if(s.h)h+=`<h2>${esc(s.h)}</h2>`;(s.p||[]).forEach(p=>h+=`<p>${esc(p)}</p>`);if(s.list)h+='<ul>'+s.list.map(l=>`<li>${esc(l)}</li>`).join('')+'</ul>'});
 if((n.sources||[]).length)h+='<div class="src"><b class="bc">Fuentes consultadas</b><ul>'+n.sources.map(s=>`<li><a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.name)}</a></li>`).join('')+'</ul></div>';
-a.insertAdjacentHTML('beforeend',h)}).catch(()=>{document.getElementById('art').innerHTML+='<p>No se pudo cargar news.json. Abre la web desde un servidor o hosting.</p>'});
+if(n.url)h+=`<div class="bts"><a class="bt f bc" href="${esc(n.url)}" target="_blank" rel="noopener">${vid?'Ver el video en':'Ver en'} ${so}</a></div>`;
+a.insertAdjacentHTML('beforeend',h)}).catch(()=>{document.getElementById('art').innerHTML+='<p>No se pudo cargar la noticia. Abre la web desde un servidor o hosting.</p>'});
 </script></body></html>

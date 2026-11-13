@@ -117,11 +117,11 @@ const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',
 const IM='<img src="assets/forbs.jpg" alt="Interés en Forbs" loading="lazy">';
 const fail=(el,f)=>el.innerHTML='<p class="demo">No se pudo cargar '+f+'. Abre la web desde un servidor o hosting, no con doble clic.</p>';
 const SRC={x:'X',instagram:'Instagram',youtube:'YouTube',tiktok:'TikTok'};let ALL=[];
-const card=n=>{const v=n.type==='video',img=n.image||n.thumb,l=n.body?`<a class="bt bc" href="noticia.html?id=${encodeURIComponent(n.id)}">Leer noticia</a>`:`<a class="bt bc" href="${esc(n.url||'#redes')}" target="_blank" rel="noopener">Ver en ${SRC[n.source]||'redes'}</a>`;
+const card=n=>{const v=n.type==='video',img=n.image||n.thumb,l=1?`<a class="bt bc" href="noticia.html?id=${encodeURIComponent(n.id)}">Leer noticia</a>`:`<a class="bt bc" href="${esc(n.url||'#redes')}" target="_blank" rel="noopener">Ver en ${SRC[n.source]||'redes'}</a>`;
 return `<article class="c rv"><div class="ph${n.type==='video'?' vd':(img?' im':'')}"><span class="tag bc">${esc(n.category||SRC[n.source]||'Noticia')}</span>${img?`<img class="t" src="${esc(img)}" alt="${esc(n.title)}" loading="lazy">`:(v?'':P)}${v?'<span class="play"></span>':''}</div><div class="cb"><h3>${esc(n.title)}</h3><small>${esc(n.date||'')}${n.source?' · '+SRC[n.source]:''}</small>${n.summary?`<p>${esc(n.summary)}</p>`:''}${l}</div></article>`};
 const render=k=>{gn.innerHTML=ALL.filter(n=>k==='all'||(k==='video')===(n.type==='video')).map(card).join('')||'<p class="demo">Aún no hay contenido de este tipo.</p>';document.querySelectorAll('#gn .rv').forEach(e=>io.observe(e))};
 fl.onclick=e=>{const b=e.target.closest('button');if(!b)return;fl.querySelectorAll('button').forEach(x=>x.classList.toggle('on',x===b));render(b.dataset.k)};
-Promise.all([fetch('news.json').then(r=>r.json()),fetch('auto.json').then(r=>r.json()).catch(()=>[])]).then(([m,a])=>{ALL=[...m,...a].sort((x,y)=>(y.ts||'').localeCompare(x.ts||''));render('all')}).catch(()=>fail(gn,'news.json'));
+Promise.all([fetch('news.json').then(r=>r.json()),fetch('auto.json').then(r=>r.json()).catch(()=>[])]).then(([m,a])=>{const rep=new Set(m.map(x=>x.replaces).filter(Boolean));ALL=[...m,...a.filter(x=>!rep.has(x.id))].sort((x,y)=>(y.ts||'').localeCompare(x.ts||''));render('all')}).catch(()=>fail(gn,'news.json'));
 tg.onclick=()=>nv.classList.toggle("o");nv.onclick=()=>nv.classList.remove("o");
 const io=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting){x.target.classList.add("v");io.unobserve(x.target)}}),{threshold:.12});
 document.querySelectorAll(".rv").forEach(e=>io.observe(e));
