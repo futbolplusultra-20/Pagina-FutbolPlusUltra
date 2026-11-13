@@ -21,7 +21,7 @@ uid, tok = os.getenv("IG_USER_ID"), os.getenv("IG_TOKEN")
 if uid and tok:
     try:
         q = urllib.parse.urlencode({"fields": "id,caption,media_type,media_url,thumbnail_url,permalink,timestamp", "limit": 8, "access_token": tok})
-        data = json.load(urllib.request.urlopen(f"https://graph.facebook.com/v21.0/{uid}/media?{q}", timeout=20))
+        data = json.load(urllib.request.urlopen(f"https://graph.facebook.com/v27.0/{uid}/media?{q}", timeout=20))
         os.makedirs("assets/auto", exist_ok=True)
         for m in data.get("data", []):
             vid = m["media_type"] == "VIDEO"
