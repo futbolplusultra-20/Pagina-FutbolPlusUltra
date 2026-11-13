@@ -36,12 +36,16 @@ except Exception as ex:
 uid, tok = os.getenv("IG_USER_ID"), os.getenv("IG_TOKEN")
 if uid and tok:
     try:
-        q = urllib.parse.urlencode({"fields": "id,caption,media_type,media_url,thumbnail_url,permalink,timestamp", "limit": 8, "access_token": tok})
+        q = urllib.parse.urlencode({"fields": "id,caption,media_type,media_url,thumbnail_url,permalink,timestamp", "limit": 25, "access_token": tok})
         data = json.load(urllib.request.urlopen(f"https://graph.facebook.com/v27.0/{uid}/media?{q}", timeout=20))
         os.makedirs("assets/auto", exist_ok=True)
         for m in data.get("data", []):
-            vid = m["media_type"] == "VIDEO"
-            src = m.get("thumbnail_url") if vid else m.get("media_url")
+            if m["media_type"] == "VIDEO":  # los Reels/videos de Instagram se ignoran: los videos salen solo de YouTube
+                continue
+            if sum(1 for o in out if o["source"] == "instagram") >= 8:
+                break
+            vid = False
+            src = m.get("media_url")
             local = ""
             if src:  # las URLs de Instagram caducan: se guarda copia local
                 local = f"assets/auto/{m['id']}.jpg"
