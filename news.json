@@ -1,11 +1,16 @@
 [
   {
     "id": "forbs",
+    "type": "post",
+    "source": "x",
+    "square": true,
     "category": "Fichajes",
     "title": "¡Interés en Forbs!",
     "highlight": "Forbs",
     "date": "07 nov 2026",
+    "ts": "2026-11-07",
     "image": "assets/forbs.jpg",
+    "url": "https://x.com/FutbolPlusUltra",
     "x_url": "https://x.com/FutbolPlusUltra",
     "summary": "El Arsenal ha puesto a Carlos Forbs, extremo del Club Brujas, en su lista de objetivos para el mercado de invierno, mientras sigue pendiente la situación física de Bukayo Saka.",
     "body": [
@@ -40,66 +45,6 @@
         "name": "Fichajes.com · Carlos Forbs, fichaje invernal",
         "url": "https://www.fichajes.com/a898532068420926512-carlos-forbs-fichaje-invernal"
       }
-    ],
-    "type": "post",
-    "source": "x",
-    "square": true,
-    "ts": "2026-11-07",
-    "url": "https://x.com/FutbolPlusUltra"
-  },
-  {
-    "id": "demo1",
-    "category": "LaLiga",
-    "title": "Noticia de ejemplo: jornada en LaLiga",
-    "date": "06 nov 2026",
-    "summary": "Tarjeta de demostración. Bórrala o sustitúyela en news.json.",
-    "type": "post",
-    "source": "x",
-    "ts": "2026-11-06",
-    "url": "https://x.com/FutbolPlusUltra"
-  },
-  {
-    "id": "demo2",
-    "category": "Premier League",
-    "title": "Noticia de ejemplo: once de la semana",
-    "date": "06 nov 2026",
-    "summary": "Tarjeta de demostración. Bórrala o sustitúyela en news.json.",
-    "type": "post",
-    "source": "x",
-    "ts": "2026-11-05",
-    "url": "https://x.com/FutbolPlusUltra"
-  },
-  {
-    "id": "demo3",
-    "category": "Champions League",
-    "title": "Noticia de ejemplo: previa europea",
-    "date": "05 nov 2026",
-    "summary": "Tarjeta de demostración. Bórrala o sustitúyela en news.json.",
-    "type": "post",
-    "source": "x",
-    "ts": "2026-11-05",
-    "url": "https://x.com/FutbolPlusUltra"
-  },
-  {
-    "id": "demo-v1",
-    "type": "video",
-    "source": "youtube",
-    "category": "Video",
-    "title": "Video de ejemplo: resumen del mercado",
-    "date": "05 nov 2026",
-    "ts": "2026-11-05",
-    "summary": "Tarjeta de demostración. Se sustituye por tus Shorts reales.",
-    "url": "https://www.youtube.com/@FutbolPlusUltra/shorts"
-  },
-  {
-    "id": "demo-v2",
-    "type": "video",
-    "source": "instagram",
-    "category": "Reel",
-    "title": "Reel de ejemplo: previa de la jornada",
-    "date": "04 nov 2026",
-    "ts": "2026-11-04",
-    "summary": "Tarjeta de demostración. Se sustituye por tus Reels reales.",
-    "url": "https://www.instagram.com/futbolplusultra/"
+    ]
   }
 ]
