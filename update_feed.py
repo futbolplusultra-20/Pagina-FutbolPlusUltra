@@ -43,16 +43,35 @@ def get_yt():
                 print("YouTube", u, "->", ex)
                 time.sleep(2)
     return None
-try:
+KEY = os.getenv("YT_API_KEY")
+def yt_api():
+    for pl in ("UUSH" + CH[2:], "UU" + CH[2:]):
+        try:
+            q = urllib.parse.urlencode({"part": "snippet", "playlistId": pl, "maxResults": 8, "key": KEY})
+            data = json.load(urllib.request.urlopen(f"https://www.googleapis.com/youtube/v3/playlistItems?{q}", timeout=20))
+            if data.get("items"):
+                print("YouTube API OK:", pl)
+                return [(i["snippet"]["resourceId"]["videoId"], i["snippet"]["title"], i["snippet"]["publishedAt"], i["snippet"].get("description", "")) for i in data["items"]]
+        except Exception as ex:
+            print("YouTube API", pl, "->", ex)
+    return []
+def yt_rss():
     root = get_yt()
     if root is None:
-        raise ValueError("ninguna dirección de YouTube respondió")
+        return []
+    res = []
     for e in root.findall("a:entry", NS)[:8]:
-        v = e.find("y:videoId", NS).text; d = e.find("a:published", NS).text
         desc = e.find("m:group/m:description", NS)
-        _, rest = split_text(desc.text if desc is not None else "")
+        res.append((e.find("y:videoId", NS).text, e.find("a:title", NS).text, e.find("a:published", NS).text, desc.text if desc is not None else ""))
+    return res
+try:
+    vids = (yt_api() if KEY else []) or yt_rss()
+    if not vids:
+        raise ValueError("ninguna fuente de YouTube respondió")
+    for v, title, d, desc in vids[:8]:
+        _, rest = split_text(desc)
         it = {"id": "yt-" + v, "type": "video", "source": "youtube", "category": "Video",
-              "title": e.find("a:title", NS).text, "date": d[:10], "ts": d[:10],
+              "title": title, "date": d[:10], "ts": d[:10],
               "url": f"https://www.youtube.com/shorts/{v}", "thumb": f"https://i.ytimg.com/vi/{v}/hqdefault.jpg"}
         it.update(extra([l for l in rest if "http" not in l]))
         out.append(it)
