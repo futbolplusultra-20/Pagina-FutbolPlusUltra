@@ -88,6 +88,17 @@
     "thumb": "https://i.ytimg.com/vi/Dih7n6frX5I/hqdefault.jpg"
   },
   {
+    "id": "ig-18488598280115161",
+    "type": "post",
+    "source": "instagram",
+    "category": "Instagram",
+    "title": "🚨 ¡DUDAS CON LOOKMAN! 🇳🇬🔴⚪️",
+    "date": "2026-11-14",
+    "ts": "2026-11-14",
+    "url": "https://www.instagram.com/p/Dfu6FNhKQ1n/",
+    "image": "assets/auto/18488598280115161.jpg"
+  },
+  {
     "id": "ig-18103190303420793",
     "type": "video",
     "source": "instagram",
@@ -163,16 +174,5 @@
     "ts": "2026-11-13",
     "url": "https://www.instagram.com/p/DfsNYQ-KOy5/",
     "image": "assets/auto/18042535076896295.jpg"
-  },
-  {
-    "id": "ig-18080246606737661",
-    "type": "post",
-    "source": "instagram",
-    "category": "Instagram",
-    "title": "🚨 ¡OBJETIVO SØRLOTH! 🇳🇴⚪️⚫️",
-    "date": "2026-11-13",
-    "ts": "2026-11-13",
-    "url": "https://www.instagram.com/p/DfsFKVsKlH8/",
-    "image": "assets/auto/18080246606737661.jpg"
   }
 ]
