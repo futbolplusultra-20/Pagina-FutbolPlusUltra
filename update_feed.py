@@ -15,12 +15,18 @@ def split_text(text):
 def extra(rest):
     return {"summary": rest[0][:160], "body": [{"p": rest}]} if rest else {}
 
+def old(src):
+    try:
+        return [x for x in json.load(open("auto.json", encoding="utf-8")) if x.get("source") == src]
+    except Exception:
+        return []
+UA = {"User-Agent": "Mozilla/5.0 (compatible; FutbolPlusUltraBot/1.0)"}
 out = []
 # --- YouTube (RSS público) ---
 CH = "UC3G_ykLv-EAS0w-AkCmrnIQ"
 NS = {"a": "http://www.w3.org/2005/Atom", "y": "http://www.youtube.com/xml/schemas/2015", "m": "http://search.yahoo.com/mrss/"}
 try:
-    root = ET.fromstring(urllib.request.urlopen(f"https://www.youtube.com/feeds/videos.xml?channel_id={CH}", timeout=20).read())
+    root = ET.fromstring(urllib.request.urlopen(urllib.request.Request(f"https://www.youtube.com/feeds/videos.xml?channel_id={CH}", headers=UA), timeout=20).read())
     for e in root.findall("a:entry", NS)[:8]:
         v = e.find("y:videoId", NS).text; d = e.find("a:published", NS).text
         desc = e.find("m:group/m:description", NS)
@@ -30,8 +36,11 @@ try:
               "url": f"https://www.youtube.com/shorts/{v}", "thumb": f"https://i.ytimg.com/vi/{v}/hqdefault.jpg"}
         it.update(extra([l for l in rest if "http" not in l]))
         out.append(it)
+    if not any(o["source"] == "youtube" for o in out):
+        raise ValueError("el feed no devolvió videos")
 except Exception as ex:
-    print("YouTube falló:", ex)
+    print("YouTube falló, se conservan los videos anteriores:", ex)
+    out = [o for o in out if o["source"] != "youtube"] + old("youtube")
 # --- Instagram (Graph API) ---
 uid, tok = os.getenv("IG_USER_ID"), os.getenv("IG_TOKEN")
 if uid and tok:
@@ -57,6 +66,7 @@ if uid and tok:
             it.update(extra(rest))
             out.append(it)
     except Exception as ex:
-        print("Instagram falló:", ex)
+        print("Instagram falló, se conservan las publicaciones anteriores:", ex)
+        out = [o for o in out if o["source"] != "instagram"] + old("instagram")
 json.dump(out, open("auto.json", "w", encoding="utf-8"), ensure_ascii=False, indent=2)
 print(len(out), "elementos guardados en auto.json")
