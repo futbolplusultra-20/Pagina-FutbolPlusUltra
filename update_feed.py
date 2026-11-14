@@ -22,11 +22,31 @@ def old(src):
         return []
 UA = {"User-Agent": "Mozilla/5.0 (compatible; FutbolPlusUltraBot/1.0)"}
 out = []
-# --- YouTube (RSS público) ---
+# --- YouTube (RSS público, con varias direcciones de respaldo) ---
 CH = "UC3G_ykLv-EAS0w-AkCmrnIQ"
 NS = {"a": "http://www.w3.org/2005/Atom", "y": "http://www.youtube.com/xml/schemas/2015", "m": "http://search.yahoo.com/mrss/"}
+URLS = [  # primero la lista de Shorts del canal, luego subidas y feed del canal
+    f"https://www.youtube.com/feeds/videos.xml?playlist_id=UUSH{CH[2:]}",
+    f"https://www.youtube.com/feeds/videos.xml?playlist_id=UU{CH[2:]}",
+    f"https://www.youtube.com/feeds/videos.xml?channel_id={CH}",
+]
+import time
+def get_yt():
+    for u in URLS:
+        for intento in range(2):
+            try:
+                root = ET.fromstring(urllib.request.urlopen(urllib.request.Request(u, headers=UA), timeout=20).read())
+                if root.findall("a:entry", NS):
+                    print("YouTube OK:", u)
+                    return root
+            except Exception as ex:
+                print("YouTube", u, "->", ex)
+                time.sleep(2)
+    return None
 try:
-    root = ET.fromstring(urllib.request.urlopen(urllib.request.Request(f"https://www.youtube.com/feeds/videos.xml?channel_id={CH}", headers=UA), timeout=20).read())
+    root = get_yt()
+    if root is None:
+        raise ValueError("ninguna dirección de YouTube respondió")
     for e in root.findall("a:entry", NS)[:8]:
         v = e.find("y:videoId", NS).text; d = e.find("a:published", NS).text
         desc = e.find("m:group/m:description", NS)
@@ -36,8 +56,6 @@ try:
               "url": f"https://www.youtube.com/shorts/{v}", "thumb": f"https://i.ytimg.com/vi/{v}/hqdefault.jpg"}
         it.update(extra([l for l in rest if "http" not in l]))
         out.append(it)
-    if not any(o["source"] == "youtube" for o in out):
-        raise ValueError("el feed no devolvió videos")
 except Exception as ex:
     print("YouTube falló, se conservan los videos anteriores:", ex)
     out = [o for o in out if o["source"] != "youtube"] + old("youtube")
