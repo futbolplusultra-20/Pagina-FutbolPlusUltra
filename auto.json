@@ -88,6 +88,17 @@
     "thumb": "https://i.ytimg.com/vi/fS5C12U2-CU/hqdefault.jpg"
   },
   {
+    "id": "ig-18136491880664393",
+    "type": "post",
+    "source": "instagram",
+    "category": "Instagram",
+    "title": "🚨 ¡GUIÑO AL BARÇA! 🇬🇪🔵🔴",
+    "date": "2026-11-14",
+    "ts": "2026-11-14",
+    "url": "https://www.instagram.com/p/DfuQqS2qKFz/",
+    "image": "assets/auto/18136491880664393.jpg"
+  },
+  {
     "id": "ig-18112439192190942",
     "type": "post",
     "source": "instagram",
@@ -163,16 +174,5 @@
     "ts": "2026-11-13",
     "url": "https://www.instagram.com/p/Dfr3Olqq7X2/",
     "image": "assets/auto/17999556633021262.jpg"
-  },
-  {
-    "id": "ig-18142811344615286",
-    "type": "video",
-    "source": "instagram",
-    "category": "Reel",
-    "title": "📺 ¡Cristiano Ronaldo da el salto a la televisión! 🔥 ",
-    "date": "2026-11-13",
-    "ts": "2026-11-13",
-    "url": "https://www.instagram.com/reel/Dfq-qAlKRUr/",
-    "image": "assets/auto/18142811344615286.jpg"
   }
 ]
