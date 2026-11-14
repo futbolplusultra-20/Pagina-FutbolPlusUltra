@@ -1,4 +1,4 @@
-"""Genera auto.json con tus últimos videos de YouTube y publicaciones/Reels de Instagram.
+"""Genera auto.json con tus últimos videos de YouTube y publicaciones de Instagram.
 Solo librería estándar. Instagram es opcional: define IG_USER_ID e IG_TOKEN.
 Guarda también el texto completo de cada publicación para su página de noticia."""
 import json, os, urllib.request, urllib.parse, xml.etree.ElementTree as ET
@@ -25,7 +25,7 @@ out = []
 # --- YouTube (RSS público, con varias direcciones de respaldo) ---
 CH = "UC3G_ykLv-EAS0w-AkCmrnIQ"
 NS = {"a": "http://www.w3.org/2005/Atom", "y": "http://www.youtube.com/xml/schemas/2015", "m": "http://search.yahoo.com/mrss/"}
-URLS = [  # primero la lista de Shorts del canal, luego subidas y feed del canal
+URLS = [
     f"https://www.youtube.com/feeds/videos.xml?playlist_id=UUSH{CH[2:]}",
     f"https://www.youtube.com/feeds/videos.xml?playlist_id=UU{CH[2:]}",
     f"https://www.youtube.com/feeds/videos.xml?channel_id={CH}",
@@ -86,19 +86,18 @@ if uid and tok:
         data = json.load(urllib.request.urlopen(f"https://graph.facebook.com/v27.0/{uid}/media?{q}", timeout=20))
         os.makedirs("assets/auto", exist_ok=True)
         for m in data.get("data", []):
-            if m["media_type"] == "VIDEO":  # los Reels/videos de Instagram se ignoran: los videos salen solo de YouTube
+            if m["media_type"] == "VIDEO":
                 continue
             if sum(1 for o in out if o["source"] == "instagram") >= 8:
                 break
-            vid = False
             src = m.get("media_url")
             local = ""
-            if src:  # las URLs de Instagram caducan: se guarda copia local
+            if src:
                 local = f"assets/auto/{m['id']}.jpg"
                 urllib.request.urlretrieve(src, local)
             title, rest = split_text(m.get("caption") or "Publicación de Instagram")
-            it = {"id": "ig-" + m["id"], "type": "video" if vid else "post", "source": "instagram",
-                  "category": "Reel" if vid else "Instagram", "title": title[:120], "date": m["timestamp"][:10],
+            it = {"id": "ig-" + m["id"], "type": "post", "source": "instagram",
+                  "category": "Instagram", "title": title[:120], "date": m["timestamp"][:10],
                   "ts": m["timestamp"][:10], "url": m["permalink"], "image": local}
             it.update(extra(rest))
             out.append(it)
