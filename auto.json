@@ -88,6 +88,17 @@
     "thumb": "https://i.ytimg.com/vi/CSHDD-_livg/hqdefault.jpg"
   },
   {
+    "id": "ig-18052525232630872",
+    "type": "video",
+    "source": "instagram",
+    "category": "Reel",
+    "title": "🌪️ ¡Terremoto en Brasil! ⚽️ ",
+    "date": "2026-11-15",
+    "ts": "2026-11-15",
+    "url": "https://www.instagram.com/reel/DfxAfMLKLBW/",
+    "image": "assets/auto/18052525232630872.jpg"
+  },
+  {
     "id": "ig-18123141337960768",
     "type": "post",
     "source": "instagram",
@@ -163,16 +174,5 @@
     "ts": "2026-11-14",
     "url": "https://www.instagram.com/p/DfuQqS2qKFz/",
     "image": "assets/auto/18136491880664393.jpg"
-  },
-  {
-    "id": "ig-18112439192190942",
-    "type": "post",
-    "source": "instagram",
-    "category": "Instagram",
-    "title": "🚨 ¡OFENSIVA POR ZAMBO ANGUISSA! 🇨🇲🔵⚫️",
-    "date": "2026-11-14",
-    "ts": "2026-11-14",
-    "url": "https://www.instagram.com/p/Dfs6AlhKjfn/",
-    "image": "assets/auto/18112439192190942.jpg"
   }
 ]
