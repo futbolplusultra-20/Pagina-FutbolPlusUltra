@@ -88,6 +88,17 @@
     "thumb": "https://i.ytimg.com/vi/U6YhEq23aAg/hqdefault.jpg"
   },
   {
+    "id": "ig-18144801610717510",
+    "type": "post",
+    "source": "instagram",
+    "category": "Instagram",
+    "title": "🚨 ¡ALARMA CON DAVIES! 🇨🇦🔴",
+    "date": "2026-11-16",
+    "ts": "2026-11-16",
+    "url": "https://www.instagram.com/p/Df0ByV8KFVL/",
+    "image": "assets/auto/18144801610717510.jpg"
+  },
+  {
     "id": "ig-17981045355133073",
     "type": "video",
     "source": "instagram",
@@ -163,16 +174,5 @@
     "ts": "2026-11-15",
     "url": "https://www.instagram.com/reel/DfxAfMLKLBW/",
     "image": "assets/auto/18052525232630872.jpg"
-  },
-  {
-    "id": "ig-18123141337960768",
-    "type": "post",
-    "source": "instagram",
-    "category": "Instagram",
-    "title": "🚨 ¡EL CRECIMIENTO DE JOBE! 🏴󠁧󠁢󠁥󠁮󠁧󠁿🟡⚫️",
-    "date": "2026-11-15",
-    "ts": "2026-11-15",
-    "url": "https://www.instagram.com/p/Dfw5-N5qzgI/",
-    "image": "assets/auto/18123141337960768.jpg"
   }
 ]
