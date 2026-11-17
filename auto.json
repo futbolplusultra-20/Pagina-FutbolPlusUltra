@@ -88,6 +88,17 @@
     "thumb": "https://i.ytimg.com/vi/U6YhEq23aAg/hqdefault.jpg"
   },
   {
+    "id": "ig-18072305663611762",
+    "type": "post",
+    "source": "instagram",
+    "category": "Instagram",
+    "title": "🚨 ¡LAYVIN KURZAWA SE RETIRA! 🇫🇷👋",
+    "date": "2026-11-17",
+    "ts": "2026-11-17",
+    "url": "https://www.instagram.com/p/Df2Uv3Uq0gl/",
+    "image": "assets/auto/18072305663611762.jpg"
+  },
+  {
     "id": "ig-18418095916089024",
     "type": "post",
     "source": "instagram",
@@ -163,16 +174,5 @@
     "ts": "2026-11-15",
     "url": "https://www.instagram.com/p/DfxysQWRqWl/",
     "image": "assets/auto/18643240204005754.jpg"
-  },
-  {
-    "id": "ig-18135678907808760",
-    "type": "post",
-    "source": "instagram",
-    "category": "Instagram",
-    "title": "🚨 ¡INTERÉS EN EL LATERAL! 🔴⚪️",
-    "date": "2026-11-15",
-    "ts": "2026-11-15",
-    "url": "https://www.instagram.com/p/DfxqSytB5dm/",
-    "image": "assets/auto/18135678907808760.jpg"
   }
 ]
