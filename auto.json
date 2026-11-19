@@ -88,6 +88,17 @@
     "thumb": "https://i.ytimg.com/vi/GJHASookiaM/hqdefault.jpg"
   },
   {
+    "id": "ig-17919714522265427",
+    "type": "post",
+    "source": "instagram",
+    "category": "Instagram",
+    "title": "🚨 ¡FUTURO INCIERTO PARA LO CELSO! 🇦🇷🟢⚪️",
+    "date": "2026-11-19",
+    "ts": "2026-11-19",
+    "url": "https://www.instagram.com/p/Df7imGEqECZ/",
+    "image": "assets/auto/17919714522265427.jpg"
+  },
+  {
     "id": "ig-18146935900581695",
     "type": "video",
     "source": "instagram",
@@ -163,16 +174,5 @@
     "ts": "2026-11-18",
     "url": "https://www.instagram.com/p/Df4piwEq-fC/",
     "image": "assets/auto/18122753864055380.jpg"
-  },
-  {
-    "id": "ig-17991327963095525",
-    "type": "post",
-    "source": "instagram",
-    "category": "Instagram",
-    "title": "🚨 ¡DURÍSIMA BAJA EN EL ATLETI! 🔴⚪️",
-    "date": "2026-11-17",
-    "ts": "2026-11-17",
-    "url": "https://www.instagram.com/p/Df29LINNL84/",
-    "image": "assets/auto/17991327963095525.jpg"
   }
 ]
