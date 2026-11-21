@@ -88,6 +88,17 @@
     "thumb": "https://i.ytimg.com/vi/Kyo5rjcVHws/hqdefault.jpg"
   },
   {
+    "id": "ig-17953434948057304",
+    "type": "post",
+    "source": "instagram",
+    "category": "Instagram",
+    "title": "🚨 ¡PUJA POR DANIEL SVENSSON! 🇸🇪⚪️",
+    "date": "2026-11-21",
+    "ts": "2026-11-21",
+    "url": "https://www.instagram.com/p/DgA2z1zqv-X/",
+    "image": "assets/auto/17953434948057304.jpg"
+  },
+  {
     "id": "ig-17996206212080091",
     "type": "post",
     "source": "instagram",
@@ -163,16 +174,5 @@
     "ts": "2026-11-20",
     "url": "https://www.instagram.com/p/Df-Bs9SqoYX/",
     "image": "assets/auto/17918698533513342.jpg"
-  },
-  {
-    "id": "ig-17976427569187387",
-    "type": "video",
-    "source": "instagram",
-    "category": "Reel",
-    "title": "⚽️ ¡Situación límite en Old Trafford fuera de los terrenos de juego! 💸 ",
-    "date": "2026-11-20",
-    "ts": "2026-11-20",
-    "url": "https://www.instagram.com/reel/Df96VS2KKYJ/",
-    "image": "assets/auto/17976427569187387.jpg"
   }
 ]
