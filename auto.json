@@ -88,6 +88,17 @@
     "thumb": "https://i.ytimg.com/vi/3Fwrl04CEJA/hqdefault.jpg"
   },
   {
+    "id": "ig-17977897326159768",
+    "type": "post",
+    "source": "instagram",
+    "category": "Instagram",
+    "title": "🚨 ¡PUJA INGLESA POR SIMAKAN! 🇫🇷🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+    "date": "2026-11-23",
+    "ts": "2026-11-23",
+    "url": "https://www.instagram.com/p/DgFpbBeOvgP/",
+    "image": "assets/auto/17977897326159768.jpg"
+  },
+  {
     "id": "ig-18059404928803250",
     "type": "post",
     "source": "instagram",
@@ -163,16 +174,5 @@
     "ts": "2026-11-21",
     "url": "https://www.instagram.com/p/DgAjz4Mq4eC/",
     "image": "assets/auto/17996206212080091.jpg"
-  },
-  {
-    "id": "ig-18458406322132010",
-    "type": "video",
-    "source": "instagram",
-    "category": "Reel",
-    "title": "⚽️ ¡Palabras mayores venidas de la propia familia Messi! 🇦🇷 ",
-    "date": "2026-11-21",
-    "ts": "2026-11-21",
-    "url": "https://www.instagram.com/reel/DgAebR1Kfur/",
-    "image": "assets/auto/18458406322132010.jpg"
   }
 ]
