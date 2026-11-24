@@ -88,6 +88,17 @@
     "thumb": "https://i.ytimg.com/vi/qi85LQLIr84/hqdefault.jpg"
   },
   {
+    "id": "ig-18142327261618912",
+    "type": "post",
+    "source": "instagram",
+    "category": "Instagram",
+    "title": "🚨 ¡NOCHE DE CHAMPIONS EN EL BERNABÉU! 🇪🇸🇳🇱",
+    "date": "2026-11-24",
+    "ts": "2026-11-24",
+    "url": "https://www.instagram.com/p/DgIpm2PKRJI/",
+    "image": "assets/auto/18142327261618912.jpg"
+  },
+  {
     "id": "ig-18135064366751541",
     "type": "post",
     "source": "instagram",
@@ -163,16 +174,5 @@
     "ts": "2026-11-22",
     "url": "https://www.instagram.com/p/DgDZRdVqytE/",
     "image": "assets/auto/18059404928803250.jpg"
-  },
-  {
-    "id": "ig-18138667663736082",
-    "type": "video",
-    "source": "instagram",
-    "category": "Reel",
-    "title": "⚽️ ¡Momento de máxima tensión y preocupación en Múnich! 🧠 ",
-    "date": "2026-11-22",
-    "ts": "2026-11-22",
-    "url": "https://www.instagram.com/reel/DgDSs6Qqb8A/",
-    "image": "assets/auto/18138667663736082.jpg"
   }
 ]
