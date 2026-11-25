@@ -88,6 +88,17 @@
     "thumb": "https://i.ytimg.com/vi/TSiedkhdfGw/hqdefault.jpg"
   },
   {
+    "id": "ig-18233542858333639",
+    "type": "video",
+    "source": "instagram",
+    "category": "Reel",
+    "title": "⚽️ ¡Baja muy sensible para el FC Barcelona en un tramo clave! ⚖️ ",
+    "date": "2026-11-25",
+    "ts": "2026-11-25",
+    "url": "https://www.instagram.com/reel/DgLBC7_O25Z/",
+    "image": "assets/auto/18233542858333639.jpg"
+  },
+  {
     "id": "ig-18042180053849616",
     "type": "post",
     "source": "instagram",
@@ -163,16 +174,5 @@
     "ts": "2026-11-24",
     "url": "https://www.instagram.com/p/DgIU4znujrJ/",
     "image": "assets/auto/18051055997831629.jpg"
-  },
-  {
-    "id": "ig-18038706815893644",
-    "type": "post",
-    "source": "instagram",
-    "category": "Instagram",
-    "title": "🚨 ¡LA SERIE A PELEA POR BALDE! 🇪🇸🇮🇹",
-    "date": "2026-11-23",
-    "ts": "2026-11-23",
-    "url": "https://www.instagram.com/p/DgGaYIxqFTM/",
-    "image": "assets/auto/18038706815893644.jpg"
   }
 ]
