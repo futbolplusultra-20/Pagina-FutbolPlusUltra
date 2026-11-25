@@ -88,6 +88,17 @@
     "thumb": "https://i.ytimg.com/vi/TSiedkhdfGw/hqdefault.jpg"
   },
   {
+    "id": "ig-17916928032288763",
+    "type": "post",
+    "source": "instagram",
+    "category": "Instagram",
+    "title": "🚨 ¡GOLEADA DEL BARÇA EN BAKÚ! 🔵🔴🔥",
+    "date": "2026-11-25",
+    "ts": "2026-11-25",
+    "url": "https://www.instagram.com/p/DgLTtdqu0P7/",
+    "image": "assets/auto/17916928032288763.jpg"
+  },
+  {
     "id": "ig-18233542858333639",
     "type": "video",
     "source": "instagram",
@@ -163,16 +174,5 @@
     "ts": "2026-11-24",
     "url": "https://www.instagram.com/p/DgIfyd4uwJo/",
     "image": "assets/auto/18135064366751541.jpg"
-  },
-  {
-    "id": "ig-18051055997831629",
-    "type": "post",
-    "source": "instagram",
-    "category": "Instagram",
-    "title": "🚨 ¡SCHOLES ATIZA A YORO! 🇫🇷🔴",
-    "date": "2026-11-24",
-    "ts": "2026-11-24",
-    "url": "https://www.instagram.com/p/DgIU4znujrJ/",
-    "image": "assets/auto/18051055997831629.jpg"
   }
 ]
