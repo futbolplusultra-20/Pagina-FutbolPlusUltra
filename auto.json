@@ -88,6 +88,17 @@
     "thumb": "https://i.ytimg.com/vi/ImX-kmjjiyw/hqdefault.jpg"
   },
   {
+    "id": "ig-18137924278687804",
+    "type": "post",
+    "source": "instagram",
+    "category": "Instagram",
+    "title": "🚨 ¡DONNARUMMA, EN VENTA! 🇮🇹🩵",
+    "date": "2026-11-27",
+    "ts": "2026-11-27",
+    "url": "https://www.instagram.com/p/DgQGBkZuB75/",
+    "image": "assets/auto/18137924278687804.jpg"
+  },
+  {
     "id": "ig-18123927346947194",
     "type": "post",
     "source": "instagram",
@@ -163,16 +174,5 @@
     "ts": "2026-11-25",
     "url": "https://www.instagram.com/p/DgLTtdqu0P7/",
     "image": "assets/auto/17916928032288763.jpg"
-  },
-  {
-    "id": "ig-18233542858333639",
-    "type": "video",
-    "source": "instagram",
-    "category": "Reel",
-    "title": "⚽️ ¡Baja muy sensible para el FC Barcelona en un tramo clave! ⚖️ ",
-    "date": "2026-11-25",
-    "ts": "2026-11-25",
-    "url": "https://www.instagram.com/reel/DgLBC7_O25Z/",
-    "image": "assets/auto/18233542858333639.jpg"
   }
 ]
